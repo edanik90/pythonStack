@@ -8,12 +8,12 @@ for i in range(5, 1001):
 
 # 3 Counting, the Dojo Way
 for i in range(1, 101):
-    if(i % 5 == 0):
+    if(i % 10 == 0):
+        print('Coding Dojo')
+    elif(i % 5 == 0):
         print('Coding')
     else:
         print(i)
-    if(i % 10 == 0):
-        print('Coding Dojo')
 
 # 4 Whoa. That Sucker's Huge
 finalSum = 0
