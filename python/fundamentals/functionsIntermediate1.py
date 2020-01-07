@@ -1,20 +1,18 @@
 import random
-def randInt1(min = 0, max = 100):
-    num = random.random()*max
-    return round(num)
-print(randInt1()) # should print a random integer between 0 to 100
-
-def randInt2(max, min = 0):
-    num = random.random()*max
-    return round(num)
-print(randInt2(max=50)) # should print a random integer between 0 to 50
-
-def randInt3(min, max = 100):
-    num = random.random()*50+50
-    return round(num)
-print(randInt3(min=50)) # should print a random integer between 50 to 100
-
-def randInt4(min, max):
-    num = random.random()*450+50
-    return round(num)
-print(randInt4(min=50, max=500)) # should print a random integer between 50 and 500
+def randInt(min = 0, max = 100):
+    if (min == 0) and (max == 100):
+        num = random.random() * 100
+        return round(num)
+    if min == 0:
+        num = random.random() * max
+        return round(num)
+    if max == 0:
+        num = random.random() * (100 - min) + min
+        return round(num)
+    else:
+        num = random.random() * (max - min) + min
+        return round(num)
+# print(randInt()) # should print a random integer between 0 to 100
+# print(randInt(max=50)) 	    # should print a random integer between 0 to 50
+# print(randInt(min=50)) 	    # should print a random integer between 50 to 100
+print(randInt(min=50, max=500))    # should print a random integer between 50 and 500
