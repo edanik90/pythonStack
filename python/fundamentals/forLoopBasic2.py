@@ -46,7 +46,7 @@ def minimum_value(my_list):
         if i < min_value:
             min_value = i
     return min_value
-print(minimum_value([0,1,5,20,-1,2,-4]))
+print(minimum_value([0,1,5,20,-1,2,-20,21]))
 
 # 7 Maximum
 def maximum_value(my_list):
