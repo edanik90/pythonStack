@@ -1,5 +1,5 @@
 class BankAccount:
-	def __init__(self, interest_rate = 0.01, balance = 0):
+	def __init__(self, interest_rate = 0.02, balance = 0):
 		self.balance = balance
 		self.interest_rate = interest_rate
 
@@ -20,7 +20,7 @@ class BankAccount:
 
 	def yield_interest(self):
 		if self.balance > 0:
-			self.balance = self.balance * self.interest_rate
+			self.balance += self.balance * self.interest_rate
 		return self
 
 account_1 = BankAccount(0.04)
