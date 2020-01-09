@@ -5,7 +5,7 @@ class User():
         self.name = name
         self.email = email
         self.account = BankAccount(interest_rate, balance = 0)
-    
+
     def make_deposit(self, amount):
         self.account.deposit(amount)
         return self
@@ -41,7 +41,6 @@ class BankAccount():
         return self
 
     def transfer(self, other_user, amount):
-        self.other_user = other_user
         self.withdraw(amount)
         other_user.account.deposit(amount)
         self.display_account_info()
