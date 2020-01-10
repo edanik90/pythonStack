@@ -12,16 +12,21 @@ class Store():
         # product = Product(new_product, price, category)
         self.list_of_products.append(new_product)
     
-    def sell_product(self, product_id):
-        product_id = self.list_of_products[product_id]
+    def sell_product(self, id):
+        product_id = self.list_of_products[id]
         self.list_of_products.remove(product_id)
-
-
-new_store = Store('Foods')
-apple = Product('Apple', 1, 'fruits')
-pear = Product('Pear', 2, 'fruits')
-new_store.add_product(apple)
-new_store.add_product(pear)
-# new_store.sell_product(1)
-# print(new_store)
-apple.print_info()
+    
+    def inflation(self, percent_increase):
+        for item in self.list_of_products:
+            item.update_price(percent_increase, True)
+    
+    def set_clearance(self, category, percent_discount):
+        for item in self.list_of_products:
+            if category == item.category:
+                item.update_price(percent_discount, False)
+    
+    def show_products(self):
+        for item in self.list_of_products:
+            print(f'Product name: ' + item.name + ' || Category: ' + item.category + ' || Price: $' + str(item.price))
+        print('*'*80)
+        return self
