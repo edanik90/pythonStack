@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    margin: 0px auto;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+main{
+    width: 300px;
+    padding: 20px;
+    border: 1px solid red;
+    margin: 0px auto;
+    text-align: center;
+
+}
+
+h1{
+    color: red;
+}
