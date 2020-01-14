@@ -21,8 +21,8 @@ Ninja.objects.create(first_name = "Lara", last_name = "Croft", dojo = dojo3)
 Ninja.objects.create(first_name = "Nathan", last_name = "Drake", dojo = dojo3)
 Ninja.objects.create(first_name = "Fus", last_name = "Rodah", dojo = dojo3)
 dojo1_ninjas = Dojo.objects.first()
-dojo1_ninjas.ninjas
+dojo1_ninjas.ninjas.all()
 dojo3_ninjas = Dojo.objects.last()
-dojo3_ninjas.ninjas
+dojo3_ninjas.ninjas.all()
 Ninja.objects.last().dojo
 Dojo.objects.create(name = "Dojo4", city = "City3", state = "NY", desc = "old dojo")
