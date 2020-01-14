@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <header>
+        <p>Your Gold: {{request.session.gold_amount}}</p>
+    </header>
+    <main>
+        <div>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Farm</h2>
+                <p>(earns 10-20 golds)</p>
+                <input type="submit" value="Find Gold" name="farm_gold">
+                <input type="hidden" name="location" value="farm">
+            </form>
+        </div>
+        <div>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Cave</h2>
+                <p>(earns 5-10 golds)</p>
+                <input type="submit" value="Find Gold" name="cave_gold">
+                <input type="hidden" name="location" value="cave">
+            </form>
+        </div>
+        <div>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>House</h2>
+                <p>(earns 2-5 golds)</p>
+                <input type="submit" value="Find Gold" name="house_gold">
+                <input type="hidden" name="location" value="house">
+            </form>
+        </div>
+        <div>
+            <form action="/process_money" method="POST">
+                {% csrf_token %}
+                <h2>Casino</h2>
+                <p>(earns/takes 0-50 golds)</p>
+                <input type="submit" value="Find Gold" name="casino_gold">
+                <input type="hidden" name="location" value="casino">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Activities:</p>
+        <textarea readonly rows="10" cols="200">{{ request.session.activity }}</textarea>
+        <a href="/reset">RESTART THE GAME</a>
+    </footer>
+</body>
+</html>
