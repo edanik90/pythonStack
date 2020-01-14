@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ninja Gold</title>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{%static 'style.css'%}">
 </head>
 <body>
     <header>
@@ -49,8 +51,8 @@
         </div>
     </main>
     <footer>
-        <p>Activities:</p>
-        <textarea readonly rows="10" cols="200">{{ request.session.activity }}</textarea>
+        <p>Activity:</p>
+        <textarea name="game_log" style="color: green;" readonly rows="25" cols="100">{{ request.session.log }}</textarea>
         <a href="/reset">RESTART THE GAME</a>
     </footer>
 </body>
