@@ -1,0 +1,15 @@
+from new_app.models import *
+Wizard.objects.create(name = "Harry Potter", house = "Gryffindor", pet = "Hedwig", year = 5)
+Wizard.objects.create(name = "Hermione Granger", house = "Gryffindor", pet = "Crookshanks", year = 5)
+Wizard.objects.get(id = 1)
+Wizard.objects.get(house = "Gryffindor")
+harry = Wizard.objects.get(id = 1)
+harry.year = 6
+harry.save()
+
+
+SQL:
+INSERT INTO mydb.wizard (name, house, pet, year) VALUES ('Luna Lovegood', 'Ravenclaw', 'None', '4');
+INSERT INTO mydb.wizard (name, house, pet, year) VALUES ('Padma Patil', 'Ravenclaw', 'None', '5');
+SELECT * FROM mydb.wizard WHERE house = 'Ravenclaw';
+UPDATE mydb.wizard SET year = '5' WHERE id = 1;
