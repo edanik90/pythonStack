@@ -25,3 +25,4 @@ dojo1_ninjas.ninjas
 dojo3_ninjas = Dojo.objects.last()
 dojo3_ninjas.ninjas
 Ninja.objects.last().dojo
+Dojo.objects.create(name = "Dojo4", city = "City3", state = "NY", desc = "old dojo")
