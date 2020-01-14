@@ -3,8 +3,36 @@ Book.objects.create(title = "Java", desc = "book about Java programming language
 Book.objects.create(title = "Python", desc = "book about Python programming language")
 Book.objects.create(title = "PHP", desc = "book about PHP programming language")
 Book.objects.create(title = "Ruby", desc = "book about Ruby programming language")
+
 Author.objects.create(first_name = "Jane", last_name = "Austen")
 Author.objects.create(first_name = "Emily", last_name = "Dockinson")
 Author.objects.create(first_name = "Fedor", last_name = "Dostoevsky")
 Author.objects.create(first_name = "William", last_name = "Shakespeare")
 Author.objects.create(first_name = "Lau", last_name = "Tzu")
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+
+book1.title = "C#"
+book1.save()
+
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
+author3 = Author.objects.get(id=3)
+author4 = Author.objects.get(id=4)
+author5 = Author.objects.get(id=5)
+
+author4.first_name = "Bill"
+author4.save()
+
+author1.books.add(book1, book2)
+author2.books.add(book1, book2, book3)
+author3.books.add(book1, book2, book3, book4)
+author4.books.add(book1, book2, book3, book4, book5)
+
+Author.objects.filter(books = book3).all()
+
+book3.authors.first().delete()
