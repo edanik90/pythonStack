@@ -17,11 +17,8 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('new_app.urls')),
-    path('new', include('new_app.urls')),
-    path('create', include('new_app.urls')),
-    path('<int:number>', include('new_app.urls')),
-    path('<int:number>/edit', include('new_app.urls')),
-    path('<int:number>/delete', include('new_app.urls'))
+    path('', include('users_app.urls')),
+    path('blogs/', include('new_app.urls')),
+    path('surveys/', include('surveys_app.urls'))
     # path('admin/', admin.site.urls),
 ]
