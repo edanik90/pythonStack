@@ -1,0 +1,27 @@
+from dojo_ninjas_app.models import Ninja, Dojo
+Dojo.objects.create(name = "Dojo1", city = "City1", state = "IL")
+Dojo.objects.create(name = "Dojo2", city = "City1", state = "IL")
+Dojo.objects.create(name = "Dojo3", city = "City2", state = "CA")
+dojo1 = Dojo.objects.get(id = 1)
+dojo1.delete()
+dojo2 = Dojo.objects.get(id = 2)
+dojo2.delete()
+dojo3 = Dojo.objects.get(id = 3)
+dojo3.delete()
+dojo1.save()
+dojo2.save()
+dojo3.save()
+Ninja.objects.create(first_name = "John", last_name = "Wick", dojo = dojo1)
+Ninja.objects.create(first_name = "Peter", last_name = "Parker", dojo = dojo1)
+Ninja.objects.create(first_name = "Bruce", last_name = "Wayne", dojo = dojo1)
+Ninja.objects.create(first_name = "Peter", last_name = "Quill", dojo = dojo2)
+Ninja.objects.create(first_name = "Hidetaka", last_name = "Myazaki", dojo = dojo2)
+Ninja.objects.create(first_name = "Hideo", last_name = "Kojima", dojo = dojo2)
+Ninja.objects.create(first_name = "Lara", last_name = "Croft", dojo = dojo3)
+Ninja.objects.create(first_name = "Nathan", last_name = "Drake", dojo = dojo3)
+Ninja.objects.create(first_name = "Fus", last_name = "Rodah", dojo = dojo3)
+dojo1_ninjas = Dojo.objects.first()
+dojo1_ninjas.ninjas
+dojo3_ninjas = Dojo.objects.last()
+dojo3_ninjas.ninjas
+Ninja.objects.last().dojo
