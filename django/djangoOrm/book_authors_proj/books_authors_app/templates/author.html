@@ -18,12 +18,12 @@
             <li>{{ book.title }}</li>
         {% endfor %}
     </ul>
-    <form action="">
+    <form action="/author/{{author.id}}/add_book" method="POST">
         {%csrf_token%}
-        <select>
+        <select name="book_id">
             <!-- <option value="" selected data-default>-select a book-</option> -->
             {%for book in all_books%}
-            <option value="{{author.id}}">{{book.title}}</option>
+            <option value="{{book.id}}">{{book.title}}</option>
             {% endfor %}
         </select>
         <input type="submit" value="Add">

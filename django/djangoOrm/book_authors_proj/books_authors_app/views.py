@@ -41,7 +41,14 @@ def add_author(request):
         notes = request.POST['author_notes'])
     return redirect("/authors")
 
-def add_book_author(request):
+def add_author_to_book(request, book_id):
     author = Author.objects.get(id = request.POST['author_id'])
-    Book.objects.get(id = request.POST['author_id']).authors.add(author)
-    return redirect(f"/books/{request.POST['author_id']}")
+    book = Book.objects.get(id = book_id)
+    book.authors.add(author)
+    return redirect(f"/books/{book_id}")
+
+def add_book_to_author(request, author_id):
+    book = Book.objects.get(id = request.POST['book_id'])
+    author = Author.objects.get(id = author_id)
+    author.books.add(book)
+    return redirect(f"/authors/{author_id}")
