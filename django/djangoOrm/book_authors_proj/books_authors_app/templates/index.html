@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Add a Book</h1>
-    <form action="/books/add" method="POST">
+    <form action="/book/add" method="POST">
         {% csrf_token %}
         Title: <input type="text" name="book_title">
         Description: <textarea name="description" cols="65" rows="7"></textarea>
