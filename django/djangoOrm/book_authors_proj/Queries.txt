@@ -35,4 +35,9 @@ author4.books.add(book1, book2, book3, book4, book5)
 
 Author.objects.filter(books = book3).all()
 
-book3.authors.first().delete()
+book3.authors.remove(book3.authors.first())
+
+book2.authors.add(author5)
+
+author3.books.all()
+book5.authors.all()
