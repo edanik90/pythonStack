@@ -30,3 +30,13 @@ def author(request, author_id):
         "books": Author.objects.get(id=author_id).books.all()
     }
     return render(request, "author.html", context)
+
+def add_book(request):
+    Book.objects.create(title = request.POST['book_title'], description = request.POST['description'])
+    return redirect("/")
+
+def add_author(request):
+    Author.objects.create(first_name = request.POST['author_first_name'], 
+        last_name = request.POST['author_last_name'],
+        notes = request.POST['author_notes'])
+    return redirect("/authors")

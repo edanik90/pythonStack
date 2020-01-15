@@ -10,11 +10,11 @@
 </head>
 <body>
     <h1>Add an Author</h1>
-    <form action="">
+    <form action="/authors/add" method="POST">
         {% csrf_token %}
-        First Name: <input type="text">
-        Last Name: <input type="text">
-        Notes: <textarea name="desc" id="" cols="65" rows="7"></textarea>
+        First Name: <input type="text" name="author_first_name">
+        Last Name: <input type="text" name="author_last_name">
+        Notes: <textarea name="author_notes" id="" cols="65" rows="7"></textarea>
         <input type="submit" value="Add">
     </form>
     <table>
