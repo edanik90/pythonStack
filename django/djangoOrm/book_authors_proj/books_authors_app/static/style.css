@@ -2,6 +2,14 @@
     vertical-align: top;
 }
 
+textarea{
+    resize: none;
+}
+
 input, textarea{
     display: block;
+}
+
+select option[data-default] {
+    color: #888;
 }

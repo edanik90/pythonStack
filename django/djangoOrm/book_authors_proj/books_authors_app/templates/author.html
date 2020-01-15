@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ author.first_name }} {{ author.last_name }}</title>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{%static 'style.css'%}">
+</head>
+<body>
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+    <h2>ID: {{author.id}}</h2>
+    Notes: <textarea name="" id="" cols="65" rows="7" readonly>{{author_notes}}</textarea>
+    <h2>Books:</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+    <form action="">
+        {%csrf_token%}
+        <select>
+            <!-- <option value="" selected data-default>-select a book-</option> -->
+            {%for book in all_books%}
+            <option value="{{author.id}}">{{book.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>
