@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'style.css'%}">
+</head>
+<body>
+    <h1>Edit Show {{show.id}}</h1>
+    <a id="go_back" href="/">Go Back</a>
+    <form action="/shows/{{show.id}}/update" method="POST">
+        {% csrf_token %}
+        Title <input type="text" name = "title" value="{{show.title}}">
+        Network <input type="text" name = "network" value="{{show.network}}">
+        Release Date <input type="date" name = "release_date" value="{{show.release_date|date:'Y-m-d'}}">
+        Description <textarea name="description" cols="75" rows="15">{{show.description}}</textarea>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

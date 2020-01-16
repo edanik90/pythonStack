@@ -1,0 +1,20 @@
+*{
+    vertical-align: top;
+}
+
+textarea{
+    resize: none;
+}
+
+input, textarea{
+    display: block;
+}
+
+select option[data-default] {
+    color: #888;
+}
+
+#go_back {
+    display: inline-block;
+    margin-left: 400px;
+}
