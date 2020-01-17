@@ -11,6 +11,9 @@
 <body>
     <h1>Edit Show {{show.id}}</h1>
     <a id="go_back" href="/">Go Back</a>
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
     <form action="/shows/{{show.id}}/update" method="POST">
         {% csrf_token %}
         Title <input type="text" name = "title" value="{{show.title}}">

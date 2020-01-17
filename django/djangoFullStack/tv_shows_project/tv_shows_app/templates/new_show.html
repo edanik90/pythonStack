@@ -11,6 +11,9 @@
 <body>
     <h1>Add a New Show</h1>
     <a id="go_back" href="/">Go Back</a>
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
     <form action="/shows/create" method="POST">
         {% csrf_token %}
         Title <input type="text" name = "title">
