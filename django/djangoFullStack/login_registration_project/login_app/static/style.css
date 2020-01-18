@@ -1,0 +1,38 @@
+*{
+    vertical-align: top;
+    text-align: left;
+}
+
+main{
+    width: 100%;
+    text-align: center;
+}
+
+.wrappers{
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 50px 50px;
+}
+
+.sub_div{
+    display: inline-block;
+    margin: 50px 50px;
+}
+
+textarea{
+    resize: none;
+}
+
+input, textarea{
+    display: block;
+}
+
+select option[data-default] {
+    color: #888;
+}
+
+#log_out {
+    display: inline-block;
+    margin-left: 400px;
+}
