@@ -1,0 +1,86 @@
+*{
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    vertical-align: top;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+html, body{
+    margin: 0px;
+    height: 100%;
+}
+
+#wrapper{
+    height: 100%;
+}
+
+main{
+    height: 100%;
+    margin: 0px auto;
+    width: 970px;
+}
+
+.messages{
+    background-color: rgb(161, 161, 161);
+    margin: 20px auto;
+    width: 100%;
+    padding: 10px;
+}
+
+.comment{
+    width: 940px;
+    margin-left: 20px;
+}
+
+header a, header p, header h1{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header a{
+    float: right;
+    margin-right: 20px;
+}
+
+header p{
+    margin-left: 30px;
+    color: darkred;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+header{
+    margin: 0px;
+    padding: 10px;
+    border:1px solid black;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+
+input, textarea{
+    display: block;
+}
+
+.delete_button{
+    background-color: red;
+}
+
+.comment_button{
+    background-color: green;
+}
+
+.message_button{
+    background-color: #3939aa;
+}
+
+.delete_button, .comment_button, .message_button{
+    color: white;
+    /* float: right; */
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    margin: 0px;
+}
