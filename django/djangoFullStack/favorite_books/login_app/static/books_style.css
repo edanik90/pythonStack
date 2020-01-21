@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+html, body{
+    margin: 0px;
+    height: 100%;
+}
+
+#wrapper{
+    height: 100%;
+}
+
+main{
+    margin: 0px auto;
+    width: 970px;
+}
+
+a{
+    font-weight: bold;
+}
+
+#unfavorite{
+    display: inline-block;
+}
+
+.book, .info{
+    width: 400px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.favorites{
+    font-style: italic;
+}
+
+.errors, .errors li{
+    font-weight: bold;
+    color: red;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.errors li::before {
+    content: "!";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red; /* Change the color */
+    display: inline-block;
+    font-weight: bold;
+    width: 2em;
+    margin-left: -1em;
+}
+
+header a, header h1{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header a{
+    float: right;
+    margin-right: 20px;
+}
+
+header{
+    margin: 0px;
+    padding: 10px;
+    border:1px solid black;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+
+input, textarea{
+    display: block;
+}

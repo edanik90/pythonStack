@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Favorite Books</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{request.session.first_name}}!</h1>
+        <a href="/books/logout">Log Out</a>
+    </header>
+    <div id="wrapper">
+        <main>
+            <div class="book">
+                <form action="/books/add_new_book" method="POST">
+                    {% csrf_token %}
+                    <h2>Add a Favorite Book</h2>
+                    Title: <input type="text" name="title">
+                    Description: <textarea name="description" cols="45" rows="10"></textarea>
+                    <input type="submit" value="Add">
+                    <ul class="errors">
+                        {% for message in messages %}
+                            <li>{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+            <div class="info">
+                <h2>All Books</h2>
+                {% for book in books %}
+                    <a href="/books/{{book.id}}">{{book.title}}</a>
+                    <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+                    {% if book in user.favorite_books.all %}
+                        <p class="favorites">this is one of your favorites</p>
+                    {% else %}
+                        <a href="">Add to Favorites</a>
+                    {% endif %}
+                    <br><br><br>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

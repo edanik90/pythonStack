@@ -33,4 +33,5 @@ def login(request):
     else:
         request.session['user_id'] = user.id
         request.session['first_name'] = user.first_name
-        return redirect("wall/")
+        request.session['last_name'] = user.last_name
+        return redirect("books/")
