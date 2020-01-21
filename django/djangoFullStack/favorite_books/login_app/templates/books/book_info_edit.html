@@ -13,18 +13,22 @@
         <h1>Welcome, {{request.session.first_name}}!</h1>
         <a href="/books/logout">Log Out</a>
     </header>
+    <nav>
+        <a class="navigate_links" href="/books">Go to main page</a>
+        <a class="navigate_links" href="/books/my_favorite_books">My favorite books</a>
+    </nav>
     <div id="wrapper">
         <main>
             <div class="book">
-                <form action="" method="POST">
+                <form action="/books/edit/{{book.id}}" method="POST">
                     {% csrf_token %}
-                    <h2>{{book.title}}</h2>
+                    Title: <input type="text" name="title" value="{{book.title}}">
                     <p>Added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
                     <p>Added on {{book.created_at}}</p>
                     <p>Last updated on {{book.updated_at}}</p>
                     Description: <textarea name="description" cols="45" rows="10">{{book.description}}</textarea>
-                    <input type="submit" value="Update">
-                    <input type="submit" value="Delete">
+                    <input class="update_button" type="submit" name="update" value="Update">
+                    <input class="delete_button" type="submit" name="delete" value="Delete">
                     <ul>
                         {% for message in messages %}
                             <li>{{message}}</li>
@@ -33,17 +37,20 @@
                 </form>
             </div>
             <div class="info">
-                <h2>Users Who Like This Book:</h2>
+                <h2>Users who like this book:</h2>
                 <ul>
                     {% for user in users %}
                         {% if user in book.users_who_like.all %}
-                            <li><p>{{user.first_name}} {{user.last_name}} </p>
-                            {% if user.id == request.session.user_id %}
-                                <a class="unfavorite" href="">Un-favorite</a>
-                            {% endif %}</li>
+                            <li><p>{{user.first_name}} {{user.last_name}} </p></li>
                         {% endif %}
+                        <br>
                     {% endfor %}
                 </ul>
+                {% if book in user.favorite_books.all %}
+                    <a href="/books/{{book.id}}/unfavorite">Un-favorite</a>
+                {% else %}
+                    <a href="/books/{{book.id}}/add_favorite">Add to Favorites</a>
+                {% endif %}
                 <br>
             </div>
         </main>

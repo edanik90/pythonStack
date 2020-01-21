@@ -13,6 +13,9 @@
         <h1>Welcome, {{request.session.first_name}}!</h1>
         <a href="/books/logout">Log Out</a>
     </header>
+    <nav>
+        <a class="navigate_links" href="/books/my_favorite_books">My favorite books</a>
+    </nav>
     <div id="wrapper">
         <main>
             <div class="book">
@@ -21,7 +24,7 @@
                     <h2>Add a Favorite Book</h2>
                     Title: <input type="text" name="title">
                     Description: <textarea name="description" cols="45" rows="10"></textarea>
-                    <input type="submit" value="Add">
+                    <input class="add_button" type="submit" value="Add">
                     <ul class="errors">
                         {% for message in messages %}
                             <li>{{message}}</li>
@@ -37,7 +40,7 @@
                     {% if book in user.favorite_books.all %}
                         <p class="favorites">this is one of your favorites</p>
                     {% else %}
-                        <a href="">Add to Favorites</a>
+                        <a href="/books/{{book.id}}/add_favorite">Add to Favorites</a>
                     {% endif %}
                     <br><br><br>
                 {% endfor %}

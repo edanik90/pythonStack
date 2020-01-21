@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Favorite Books</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{request.session.first_name}}!</h1>
+        <a href="/books/logout">Log Out</a>
+    </header>
+    <nav>
+        <a class="navigate_links" href="/books">Go to main page</a>
+    </nav>
+    <div id="wrapper">
+        <main>
+            <h2>My favorite books</h2>
+            <ul>
+                {% for book in books %}
+                    <br><li><a href="/books/{{book.id}}">{{book.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
