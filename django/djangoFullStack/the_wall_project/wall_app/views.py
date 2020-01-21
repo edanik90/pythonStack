@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from login_app.models import *
 from .models import *
-from datetime import datetime, timedelta
+from datetime import timedelta
+from django.utils import timezone
 from time import gmtime, strftime
 
 def wall(request):
@@ -10,7 +11,7 @@ def wall(request):
         messages.error(request, "Please, log in first!")
         return redirect("/")
     context = {
-        "messages":Message.objects.all().order_by("-created_at")
+        "all_messages":Message.objects.all().order_by("-created_at")
     }
     return render(request, "wall/wall.html", context)
 
@@ -25,6 +26,11 @@ def post_message(request):
 
 def delete_message(request):
     message = Message.objects.get(id = request.POST['message_id'])
+    current_time = timezone.now()
+    print(current_time)
+    if message.created_at < current_time - timedelta(minutes = 30):
+        messages.error(request, "30 minutes past: you cannot delete this message")
+        return redirect("/wall")
     message.delete()
     return redirect("/wall")
 
