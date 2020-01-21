@@ -1,0 +1,52 @@
+*{
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    vertical-align: top;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+#wrapper{
+    text-align: center;
+    margin: 0px auto;
+    width: 970px;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+
+input, textarea{
+    display: block;
+}
+
+.login{
+    margin: 50px 20px 0px 20px;
+    display: inline-block;
+}
+
+.submit{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    box-shadow: 2px 2px 5px black;
+    margin: 0px;
+}
+
+ul, ul li{
+    font-weight: bold;
+    color: red;
+    list-style-type: none;
+    padding: 5px;
+    text-align: center;
+}
+
+ul li::before {
+    content: "!";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red; /* Change the color */
+    display: inline-block;
+    font-weight: bold;
+    width: 2em;
+    margin-left: -1em;
+}

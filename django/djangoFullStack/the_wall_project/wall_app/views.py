@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from login_app.models import *
+from datetime import datetime, timedelta
+from time import gmtime, strftime
 
 def wall(request):
     if not 'user_id' in request.session:
