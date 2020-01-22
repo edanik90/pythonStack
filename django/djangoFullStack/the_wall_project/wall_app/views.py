@@ -27,7 +27,8 @@ def post_message(request):
 def delete_message(request):
     message = Message.objects.get(id = request.POST['message_id'])
     current_time = timezone.now()
-    print(current_time)
+    if message.user.id != request.session['user_id']:
+        return redirect("/wall")
     if message.created_at < current_time - timedelta(minutes = 30):
         messages.error(request, "30 minutes past: you cannot delete this message")
         return redirect("/wall")

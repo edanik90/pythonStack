@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Info</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{request.session.first_name}}!</h1>
+        <a href="/books/logout">Log Out</a>
+    </header>
+    <nav>
+        <a class="navigate_links" href="/books">Home</a>
+        <a class="navigate_links" href="/books/add">Add Book and Review</a>
+    </nav>
+    <div id="wrapper">
+        <main>
+            <div class="review">
+                <h2>User alias: {{user.alias}}</h2>
+                <h3>Name: {{user.first_name}}</h3>
+                <h3>Email: {{user.email}}</h3>
+                <h3>Total reviews: {{user.reviews.all.count}}</h3><br>
+                <h3>Posted Reviews on the following books: </h3><br>
+                {% for review in user.reviews.all %}
+                    <a href="/books/{{review.book.id}}">{{review.book.title}}</a><br>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

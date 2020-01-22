@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Book and Review</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{request.session.first_name}}!</h1>
+        <a href="/books/logout">Log Out</a>
+    </header>
+    <nav>
+        <a class="navigate_links" href="/books">Home</a>
+    </nav>
+    <div id="wrapper">
+        <main>
+            <div class="add_book_div">
+                <h2>Add a new book and review</h2>
+                <form action="/books/add_book" method="POST">
+                    {% csrf_token %}
+                    <h4>Book title:</h4> <input type="text" name="title">
+                    <br>
+                    <h4>Author:</h4>
+                    Choose from the list:
+                    <select name="authors_list">
+                        {% for author in authors %}
+                            <option value="{{author.id}}">{{author.name}}</option>
+                        {% endfor %}
+                    </select><br><br>
+                    Orr add a new author:
+                    <input type="text" name="new_author"><br>
+                    <h4>Review:</h4> <textarea name="review" cols="50" rows="10"></textarea><br>
+                    <h4>Rating:</h4> <input type="number" name="rating" min="1" max="5"><br>
+                    <input class="add_button" type="submit" value="Add Book and Review">
+                </form>
+                <ul class="errors">
+                    {% for message in messages %}
+                        <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

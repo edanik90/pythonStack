@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login_style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="login">
+            <h1>Registration</h1>
+            <form action="/register" method="POST">
+                {% csrf_token %}
+                First Name: <input type="text" name="first_name">
+                Alias: <input type="text" name="alias">
+                Email: <input type="email" name="email">
+                Password: <input type="password" name="password">
+                Confirm Password: <input type="password" name="confirm_password">
+                <input class="submit" type="submit" value="Register">
+            </form>
+        </div>
+    
+        <div class="login">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                Email: <input type="email" name="email">
+                Password: <input type="password" name="password">
+                <input class="submit" type="submit" value="Log In">
+            </form>
+        </div>
+        <ul class="errors">
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+</body>
+</html>

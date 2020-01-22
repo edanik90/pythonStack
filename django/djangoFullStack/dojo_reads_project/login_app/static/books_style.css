@@ -1,0 +1,143 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+html, body{
+    margin: 0px;
+    height: 100%;
+}
+
+#wrapper{
+    height: 100%;
+}
+
+main{
+    margin: 0px auto;
+    width: 970px;
+}
+
+a{
+    font-weight: bold;
+}
+
+#list_of_books{
+    padding: 10px;
+    border: 1px solid black;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: inline-block;
+    width: 400px;
+    min-height: 100px;
+}
+
+.review, .info{
+    width: 400px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.review_parent{
+    width: 400px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.review_child{
+    border-top: black;
+    border-top-style: groove;
+    border-top-width: 1px;
+    display: block;
+}
+
+.add_book_div{
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+}
+
+nav{
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(106, 106, 235);
+}
+
+.navigate_links{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(67, 67, 195);
+    box-shadow: 2px 2px 2px black;
+}
+
+.add_button{
+    padding: 5px;
+    background-color: green;
+    display: inline-block;
+    color: white;
+}
+
+.update_button{
+    padding: 5px;
+    background-color: orange;
+    display: inline-block;
+    color: white;
+}
+
+.delete_button{
+    padding: 5px;
+    background-color: red;
+    color: white;
+    display: inline-block;
+}
+
+.favorites{
+    font-style: italic;
+}
+
+.errors, .errors li{
+    font-weight: bold;
+    color: red;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.errors li::before {
+    content: "!";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red; /* Change the color */
+    display: inline-block;
+    font-weight: bold;
+    width: 2em;
+    margin-left: -1em;
+}
+
+header a, header h1{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header a{
+    float: right;
+    margin-right: 20px;
+}
+
+header{
+    margin: 0px;
+    padding: 10px;
+    border:1px solid black;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+
+input, textarea{
+    display: block;
+}

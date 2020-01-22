@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Info</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{request.session.first_name}}!</h1>
+        <a href="/books/logout">Log Out</a>
+    </header>
+    <nav>
+        <a class="navigate_links" href="/books">Home</a>
+        <a class="navigate_links" href="/books/add">Add Book and Review</a>
+    </nav>
+    <div id="wrapper">
+        <main>
+            <div class="review_parent">
+                <h3>{{book.title}}:</h3>
+                <p>{{book.author.name}}</p><br><br>
+                <h3>Reviews:</h3>
+                {% for review in book.reviews.all %}
+                    <div class="review_child">
+                        <p>Rating: {{review.rating}}</p><br>
+                        <a href="/books/user/{{review.user.id}}">{{review.user.alias}}</a> says:
+                        <p>{{review.content}}</p><br>
+                        <p style="font-style: italic;">Posted on {{review.updated_at}}</p>
+                        {% if review.user.id == request.session.user_id %}
+                            <a href="/books/{{book.id}}/review/{{review.id}}/delete">Delete my review</a>
+                        {% endif %}
+                        <br>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="review">
+                <form action="/books/{{book.id}}/add_review" method="POST">
+                    {% csrf_token %}
+                    <h3>Add a Review:</h3> <textarea name="review" cols="40" rows="10"></textarea><br>
+                    <h3>Rating:</h3> <input type="number" name="rating" min="1" max="5"><br>
+                    <input class="add_button" type="submit" value="Submit Review">
+                </form>
+                <ul class="errors">
+                    {% for message in messages %}
+                        <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
