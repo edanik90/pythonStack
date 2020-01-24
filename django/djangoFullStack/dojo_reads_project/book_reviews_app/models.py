@@ -5,8 +5,8 @@ class AuthorManager(models.Manager):
 
     def basic_validator(self, post_data):
         errors = {}
-        if len(post_data['new_author']) <= 0:
-            errors['new_author'] = "Author's name should be at least 1 character"
+        # if len(post_data['new_author']) <= 0:
+        #     errors['new_author'] = "Author's name should be at least 1 character"
         if len(post_data['new_author']) > 100:
             errors['new_author'] = "Author's name cannot be longer that 100 characters"
         author = Author.objects.filter(name = post_data['new_author'])

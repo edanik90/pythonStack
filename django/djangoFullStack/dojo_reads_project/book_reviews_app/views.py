@@ -30,11 +30,11 @@ def add_book(request):
                 new_author = Author.objects.get(name = request.POST['new_author'])
             else:
                 new_author = Author.objects.create(name = request.POST['new_author'])    
-                new_book = Book.objects.create(title = request.POST['title'], author = new_author)
-                Review.objects.create(content = request.POST['review'], 
-                    rating = request.POST['rating'],
-                    user = User.objects.get(id = request.session['user_id']), 
-                    book = new_book)
+        new_book = Book.objects.create(title = request.POST['title'], author = new_author)
+        Review.objects.create(content = request.POST['review'], 
+            rating = request.POST['rating'],
+            user = User.objects.get(id = request.session['user_id']), 
+            book = new_book)
         return redirect(f"/books/{new_book.id}")    
     for key, value in book_errors.items():
         messages.error(request, value)
